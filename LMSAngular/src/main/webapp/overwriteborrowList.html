@@ -1,0 +1,63 @@
+<div data-ng-controller="borrowerController">
+	<section id="main-content">
+		<section class="wrapper">
+	
+			<div class="input-group col-md-12">
+				<div class="row">
+					<form>
+						<div class="col-md-6">
+							<input class="form-control" placeholder="Search by name"
+								data-ng-model="query">
+						</div>
+						<div class="col-md-6">
+							<select class="form-control" data-ng-model="orderProp">
+								<option value="" selected disabled>Sort by: </option>
+								<option value="borrowerName">Alphabet</option>
+								<option value="-borrowerCardNo">Newest</option>
+								<option value="borrowerCardNo">Oldest</option>
+							</select>
+						</div>
+					</form>
+					<div class="col-md-6">
+						<dir-pagination-controls 
+							max-size="5" 
+							direction-links="true"
+							boundary-links="true"> 
+						</dir-pagination-controls>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="col-md-12">
+				<section class="panel">
+					<div class="table-responsive">
+						<table class="table table-striped" id="authorTable">					
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Borrower name</th>
+									<th>Due Date</th>
+									<th>Override</th>
+								</tr>
+							</thead>
+							<tbody>
+			 					<tr
+			 						dir-paginate="l in bookLoanList | filter:query | orderBy:orderProp | itemsPerPage : 5">
+			 						<td>{{$index + 1}}</td>  
+									<td>{{l.cardNo}}</td>
+									<td>{{l.dueDate}}</td>
+									<td><button name="Edit" class="btn btn-sm btn-primary"
+											data-ng-click="overWirte(b.dueDate)">Edit</button></td>
+			
+			 					</tr>
+		 					</tbody>	
+						</table>
+					</div>
+				</section>
+			</div>
+			
+<!-- 			<pre>{{borrowers || json}}</pre> -->
+			
+		</section>
+	</section>
+</div>

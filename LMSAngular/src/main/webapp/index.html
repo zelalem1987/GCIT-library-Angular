@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="libraryApp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description"
+	content="Creative - Bootstrap 3 Responsive Admin Template">
+<meta name="author" content="GeeksLabs">
+<meta name="keyword"
+	content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+<link rel="shortcut icon" href="img/favicon.png">
+
+<title>GCIT Library</title>
+
+<!-- Bootstrap CSS -->
+<link href="./resources/css/bootstrap.min.css" rel="stylesheet">
+<!-- bootstrap theme -->
+<link href="./resources/css/bootstrap-theme.css" rel="stylesheet">
+<!--external css-->
+<!-- font icon -->
+<link href="./resources/css/elegant-icons-style.css" rel="stylesheet" />
+<link href="./resources/css/font-awesome.min.css" rel="stylesheet" />
+<!-- owl carousel -->
+<link rel="stylesheet" href="./resources/css/owl.carousel.css" type="text/css">
+<link href="./resources/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
+<!-- Custom styles -->
+<link rel="stylesheet" href="./resources/css/fullcalendar.css">
+<link href="./resources/css/widgets.css" rel="stylesheet">
+<link href="./resources/css/style.css" rel="stylesheet">
+<link href="./resources/css/style-responsive.css" rel="stylesheet" />
+<link href="./resources/css/xcharts.min.css" rel=" stylesheet">
+<link href="./resources/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+<!--[if lt IE 9]>
+      <script src="./resources/js/lib/html5shiv.js"></script>
+      <script src="./resources/js/respond.min.js"></script>
+      <script src="./resources/js/lte-ie7.js"></script>
+    <![endif]-->
+    
+    
+<script data-require="angular.js@*" data-semver="1.2.13"
+	src="http://code.angularjs.org/1.2.13/angular.js"></script>
+<script data-require="angular-route.js@*" data-semver="1.2.13"
+	src="http://code.angularjs.org/1.2.13/angular-route.js"></script>
+<script data-require="angular-route.js@*" data-semver="1.2.13"
+	src="http://code.angularjs.org/1.2.13/angular-cookies.js"></script>
+
+<style id="holderjs-style" type="text/css"></style>	
+<script src="./resources/js/business/app.js"></script>
+<script src="./resources/js/business/lms-config.js"></script>
+<script src="./resources/js/business/lms-service.js"></script>
+<script src="./resources/js/business/lms-constant.js"></script>
+<script src="./resources/js/business/author/author-controller.js"></script>
+<script src="./resources/js/business/book/book-controller.js"></script>
+<script src="./resources/js/business/bookLoan/bookLoan-controller.js"></script>
+<script src="./resources/js/business/genre/genre-controller.js"></script>
+<script src="./resources/js/business/borrower/borrower-controller.js"></script>
+<script src="./resources/js/business/branch/branch-controller.js"></script>
+<script src="./resources/js/business/publisher/publisher-controller.js"></script>
+<script src="./resources/js/lib/angular-ui-bootstrap-modal.js"></script>
+<script src="./resources/js/lib/dirPagination.js"></script>
+<script src="./resources/js/business/admin-services.js"></script>
+<script src="./resources/js/business/book-services.js"></script>
+
+
+<style id="holderjs-style" type="text/css"></style>
+
+</head>
+
+<body>
+	<!-- container section start -->
+	<section id="container" class="">
+		<header class="header dark-bg">
+			<div class="toggle-nav">
+				<div class="icon-reorder tooltips" data-placement="bottom">
+					<i class="icon_menu"></i>
+				</div>
+			</div>
+
+			<!--logo start-->
+			<a href="#/home" class="logo">GCIT <span class="lite">Library</span></a>
+			<!--logo end-->
+
+			<div class="nav search-row" id="top_menu">
+				<!--  search form start -->
+				<ul class="nav top-menu">
+					<li>
+						<form class="navbar-form">
+							<input class="form-control" placeholder="Search" type="text">
+						</form>
+					</li>
+				</ul>
+				<!--  search form end -->
+			</div>
+		</header>
+		<!--header end-->
+
+		<!--sidebar start-->
+		<aside>
+			<div id="sidebar" class="nav-collapse ">
+				<!-- sidebar menu start-->
+				<ul class="sidebar-menu">
+					<li class="active"><a class="" href="#/home"> <i
+							class="icon_house_alt"></i> <span>Home</span></a></li>
+					<li class="sub-menu"><a href="javascript:;" class=""> <i
+							class="icon_genius"></i> <span>Administrator</span> <span
+							class="menu-arrow arrow_carrot-right"></span>
+					</a>
+						<ul class="sub">
+
+							<li class="sub-menu"><a href="javascript:;" class=""> <i
+									class="icon_documents_alt"></i> <span>Author</span> <span
+									class="menu-arrow arrow_carrot-right"></span>
+							</a>
+								<ul class="sub-menu">
+									<li><a class="" href="#/listAuthors"><span>Show Author</span></a></li>
+									<li><a class="" href="#/newAuthor"><span>Add Author</span></a></li>
+								</ul>
+							</li>
+							<li class="sub-menu"><a href="javascript:;" class=""> <i
+									class="icon_documents_alt"></i> <span>Publisher</span> <span
+									class="menu-arrow arrow_carrot-right"></span>
+							</a>
+								<ul class="sub-menu">
+									<li><a class="" href="#/listPublishers">Show Publisher</a></li>
+									<li><a class="" href="#/newPublisher">Add Publisher</a></li>
+								</ul></li>
+							<li class="sub-menu"><a href="javascript:;" class=""> <i
+									class="icon_documents_alt"></i> <span>Book</span> <span
+									class="menu-arrow arrow_carrot-right"></span>
+							</a>
+								<ul class="sub-menu">
+									<li><a class="" href="#/listBooks">Show Book</a></li>
+									<li><a class="" href="#/newBook">Add Book</a></li>
+								</ul>
+							</li>
+							<li class="sub-menu"><a href="javascript:;" class=""> <i
+									class="icon_documents_alt"></i> <span>Genre</span> <span
+									class="menu-arrow arrow_carrot-right"></span>
+							</a>
+								<ul class="sub-menu">
+									<li><a class="" href="#/listGenres">Show Genre</a></li>
+									<li><a class="" href="#/newGenre">Add Genre</a></li>
+								</ul>
+							</li>
+							<li class="sub-menu"><a href="javascript:;" class=""> <i
+									class="icon_documents_alt"></i> <span>Borrower</span> <span
+									class="menu-arrow arrow_carrot-right"></span>
+							</a>
+								<ul class="sub-menu">
+									<li><a class="" href="#/listBorrowers">Show Borrower</a></li>
+									<li><a class="" href="#/newBorrower">Add Borrower</a></li>
+									<li><a class="" href="#/overWriteList">OverWrite</a></li>
+								</ul>
+							</li>
+						</ul></li>
+					<li class="sub-menu"><a href="javascript:;" class=""> <i
+							class="icon_genius"></i> <span>Librarian</span> <span
+							class="menu-arrow arrow_carrot-right"></span>
+					</a>
+						<ul class="sub">
+							<li class="sub-menu"><a href="javascript:;" class=""> <i
+									class="icon_documents_alt"></i> <span>Branch</span> <span
+									class="menu-arrow arrow_carrot-right"></span>
+							</a>
+								<ul class="sub">
+									<li><a class="" href="#/listBranches">Show Branches</a></li>
+									<li><a class="" href="#/newBranch">Add Branches</a></li>
+									<li><a class="" href="#/newBranchBook">Add Book to Branch</a></li>
+								</ul></li>
+						</ul></li>
+					<li class="sub-menu"><a href="javascript:;" class=""> <i
+							class="icon_genius"></i> <span>Borrower</span> <span
+							class="menu-arrow arrow_carrot-right"></span>
+					</a>
+						<ul class="sub">
+							<li><a class="" href="#/borrower">Login</a></li>
+							<li><a class="" href="#/listBooks">Books</a></li>
+							<li><a class="" href="#/listBranches">Branches</a></li>
+						</ul></li>
+				</ul>
+				<!-- sidebar menu end-->
+			</div>
+		</aside>
+		<!--sidebar end-->
+
+
+	</section>
+	
+	<div class="view-container">
+	<section data-ng-view="" id="content" class="animate-fade-up"></section>
+	</div>
+	<!-- javascripts -->
+	<script src="./resources/js/lib/jquery.js"></script>
+	<script src="./resources/js/lib/jquery-ui-1.10.4.min.js"></script>
+	<script src="./resources/js/lib/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="./resources/js/lib/jquery-ui-1.9.2.custom.min.js"></script>
+	<!-- bootstrap -->
+	<script src="./resources/js/lib/bootstrap.min.js"></script>
+	<!-- nice scroll -->
+	<script src="./resources/js/lib/jquery.scrollTo.min.js"></script>
+	<script src="./resources/js/lib/jquery.nicescroll.js" type="text/javascript"></script>
+	<!-- charts scripts -->
+	<script src="./resources/js/lib/jquery.sparkline.js" type="text/javascript"></script>
+	<script src="./resources/js/lib/owl.carousel.js"></script>
+	<!-- jQuery full calendar -->
+	<script src="./resources/js/lib/fullcalendar.min.js"></script>
+	<!-- Full Google Calendar - Calendar -->
+	<!--script for this page only-->
+	<script src="./resources/js/lib/calendar-custom.js"></script>
+	<script src="./resources/js/lib/jquery.rateit.min.js"></script>
+	<!-- custom select -->
+	<script src="./resources/js/lib/jquery.customSelect.min.js"></script>
+
+	<!--custome script for all page-->
+	<script src="./resources/js/lib/scripts.js"></script>
+	<!-- custom script for this page-->
+	<script src="./resources/js/lib/sparkline-chart.js"></script>
+	<script src="./resources/js/lib/jquery-jvectormap-1.2.2.min.js"></script>
+	<script src="./resources/js/lib/jquery-jvectormap-world-mill-en.js"></script>
+	<script src="./resources/js/lib/xcharts.min.js"></script>
+	<script src="./resources/js/lib/jquery.autosize.min.js"></script>
+	<script src="./resources/js/lib/jquery.placeholder.min.js"></script>
+	<script src="./resources/js/lib/gdp-data.js"></script>
+	<script src="./resources/js/lib/morris.min.js"></script>
+	<script src="./resources/js/lib/sparklines.js"></script>
+	<script src="./resources/js/lib/charts.js"></script>
+	<script src="./resources/js/lib/jquery.slimscroll.min.js"></script>
+	<script>
+	
+		//carousel
+		$(document).ready(function() {
+			$("#owl-slider").owlCarousel({
+				navigation : true,
+				slideSpeed : 300,
+				paginationSpeed : 400,
+				singleItem : true
+
+			});
+		});
+
+		//custom select box
+
+		$(function() {
+			$('select.styled').customSelect();
+		});
+
+		/* ---------- Map ---------- */
+		$(function() {
+			$('#map').vectorMap({
+				map : 'world_mill_en',
+				series : {
+					regions : [ {
+						values : gdpData,
+						scale : [ '#000', '#000' ],
+						normalizeFunction : 'polynomial'
+					} ]
+				},
+				backgroundColor : '#eef3f7',
+				onLabelShow : function(e, el, code) {
+					el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+				}
+			});
+		});
+	</script>
+
+</body>
+</html>

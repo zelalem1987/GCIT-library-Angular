@@ -1,0 +1,94 @@
+<div data-ng-controller="authorController">
+	<section id="main-content">
+		<section class="wrapper">
+			<!--overview start-->
+			<div class="row">
+				{{message}}
+			</div>
+
+			<div class="input-group col-md-12">
+				<div class="row">
+					<form>
+						<div class="col-md-6">
+							<input class="form-control" placeholder="Search by name"
+								data-ng-model="query">
+						</div>
+						<div class="col-md-6">
+							<select class="form-control" data-ng-model="sortIt">
+								<option value="" selected disabled>Sort by: </option>
+								<option value="authorName">Alphabet</option>
+								<option value="-lastUpdatedDate">Newest</option>
+								<option value="lastUpdatedDate">Oldest</option>
+							</select>					
+						</div>
+					</form>
+					<div class="col-md-6">
+						<dir-pagination-controls 
+							max-size="5" 
+							direction-links="true"
+							boundary-links="true"> 
+						</dir-pagination-controls>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12">
+				<section class="panel">
+					<div class="table-responsive">
+						<table class="table table-striped" id="authorTable">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Author name</th>
+									<th>Edit</th>
+									<th>Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!--when sorting needed		<tr ng-repeat="a in authors | orderBy: 'authorName'"> -->
+								<tr
+									dir-paginate="a in authors | filter:query | filter:groups | orderBy: sortIt  | itemsPerPage : 10">
+									<td>{{$index + 1}}</td>
+									<td>{{a.authorName}}</td>
+									<td><button name="Edit" class="btn btn-sm btn-primary"
+										data-ng-click="showEdit(a.authorId)">Edit</button></td>
+									<td><button name="Delete" class="btn btn-sm btn-danger"
+											data-ng-click="deleteAuthor(a.authorId, a.authorName)">Delete</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+			</div>
+
+			<div modal="editAuthorModal" class="modal fade bs-example-modal-lg"
+				id="myModal" tabindex="-1" role="dialog"
+				aria-labelledby="myLargeModalLabel">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<section class="panel">
+							<header class="panel-heading"> Edit Author </header>
+							<div class="panel-body">
+								<div class="form-group">
+									<input type="text"  class="form-control" value={{author.authorName}} data-ng-model="author.authorName">
+								</div>
+								<div class="row">
+									<div class="col-md-6 col-xs-6" align="left">
+										<button data-ng-click="updateAuthor()" class="btn btn-md btn-primary">Edit</button>
+									</div>
+									<div class="col-md-6 col-xs-6" align="right">
+										<button data-ng-click="closeEdit()" class="btn btn-md btn-danger">Cancel</button>
+									</div>
+
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+
+<!-- 			<pre>{{authors || json}}</pre>	 -->
+					
+		</section>
+	</section>
+</div>

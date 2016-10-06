@@ -1,0 +1,23 @@
+<div data-ng-controller="publisherController">
+	<section id="main-content">
+		<section class="wrapper">
+			<div class="col-lg-6">
+				<section class="panel">
+					<header class="panel-heading"> Add Publisher </header>
+					<div class="panel-body">
+						<div class="form-group">
+							<input type="text" data-ng-model="publisherName"
+								class="form-control" placeholder="Publisher Name"> 
+							<input	type="text" data-ng-model="publisherAddress" 
+							class="form-control" placeholder="Publisher Address"> 
+							<input type="text" data-ng-model="publisherPhone" 
+							class="form-control" placeholder="Publisher Phone">
+						</div>
+						<button class="btn btn-primary" data-ng-click="newPublisher()">Add</button>
+
+					</div>
+				</section>
+			</div>
+		</section>
+	</section>
+</div>

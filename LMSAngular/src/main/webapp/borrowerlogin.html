@@ -1,0 +1,21 @@
+<div ng-controller="borrowerController">
+	<section id="main-content">
+		<section class="wrapper">
+			<div class="col-lg-6">
+				<section class="panel">
+					<header class="panel-heading"> Borrower card number </header>
+					<div class="panel-body">
+						<form>
+							<div class="form-group">
+								<input type="text" data-ng-model="cardNo" class="form-control"
+									 ng-required=true placeholder="Card Number"
+									data-ng-keydown="$event.which === 13 && login()">
+							</div>
+							<button class="btn btn-md btn-success" ng-click="logIn()">Continue</button>
+						</form>
+					</div>
+				</section>
+			</div>
+		</section>
+	</section>
+</div>

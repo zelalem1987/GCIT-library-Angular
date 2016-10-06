@@ -1,0 +1,22 @@
+<div data-ng-controller="borrowerController">
+	<section id="main-content">
+		<section class="wrapper">
+			<div class="col-lg-6">
+				<section class="panel">
+					<header class="panel-heading"> Add Borrower </header>
+					<div class="panel-body">
+							<div class="form-group">
+								<input type="text" data-ng-model="borrowerName" class="form-control" 
+								placeholder="Borrower Name">
+								<input type="text" data-ng-model="borrowerAddress" class="form-control" 
+								placeholder="Borrower Address">
+								<input type="text" data-ng-model="borrowerPhone" class="form-control" 
+								placeholder="Borrower Phone">
+							</div>
+							<button id="btnAdd" data-ng-click="newBorrower()" class="btn btn-md btn-success">Add</button>	
+					</div>
+				</section>
+			</div>
+		</section>
+	</section>
+</div>

@@ -1,0 +1,96 @@
+<div data-ng-controller="borrowerController">
+	<section id="main-content">
+		<section class="wrapper">
+	
+			<div class="input-group col-md-12">
+				<div class="row">
+					<form>
+						<div class="col-md-6">
+							<input class="form-control" placeholder="Search by name"
+								data-ng-model="query">
+						</div>
+						<div class="col-md-6">
+							<select class="form-control" data-ng-model="orderProp">
+								<option value="" selected disabled>Sort by: </option>
+								<option value="borrowerName">Alphabet</option>
+								<option value="-borrowerCardNo">Newest</option>
+								<option value="borrowerCardNo">Oldest</option>
+							</select>
+						</div>
+					</form>
+					<div class="col-md-6">
+						<dir-pagination-controls 
+							max-size="5" 
+							direction-links="true"
+							boundary-links="true"> 
+						</dir-pagination-controls>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="col-md-12">
+				<section class="panel">
+					<div class="table-responsive">
+						<table class="table table-striped" id="authorTable">					
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Borrower name</th>
+									<th>Borrower address</th>
+									<th>Borrower phone</th>
+									<th>Edit</th>
+									<th>Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+			 					<tr
+			 						dir-paginate="b in borrowers | filter:query | orderBy:orderProp | itemsPerPage : 5">
+			 						<td>{{$index + 1}}</td>  
+									<td>{{b.borrowerName}}</td>
+									<td>{{b.borrowerAddress}}</td> 
+									<td>{{b.borrowerPhone}}</td>  
+									<td><button name="Edit" class="btn btn-sm btn-primary"
+											data-ng-click="showBorrowerEdit(b.borrowerCardNo)">Edit</button></td>
+									<td><button name="Delete" class="btn btn-sm btn-danger"
+											data-ng-click="deleteBorrower($index, b.borrowerName)">Delete</button></td>
+			
+			 					</tr>
+		 					</tbody>	
+						</table>
+					</div>
+				</section>
+			</div>
+			
+			<div modal="editBorrowerModal" id="myModal"
+				class="modal fade bs-example-modal-lg" tabindex="-1"	
+				role="dialog" aria-labelledby="myLargeModalLabel">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<section class="panel">
+							<header class="panel-heading"> Edit Borrower </header>
+							<div class="panel-body">
+								<div class="form-group">
+									<input type="text"  class="form-control" value={{borrower.borrowerName}} data-ng-model="borrower.borrowerName">
+									<input type="text"  class="form-control" value={{borrower.borrowerAddress}} data-ng-model="borrower.borrowerAddress">
+									<input type="text"  class="form-control" value={{borrower.borrowerPhone}} data-ng-model="borrower.borrowerPhone">
+								</div>
+								<div class="row">
+									<div class="col-md-6 col-xs-6" align="left">
+										<button data-ng-click="updateBorrower()" class="btn btn-md btn-primary">Edit</button>
+									</div>
+									<div class="col-md-6 col-xs-6" align="right">
+										<button data-ng-click="closeEdit()" class="btn btn-md btn-danger">Cancel</button>
+									</div>
+
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+			
+<!-- 			<pre>{{borrowers || json}}</pre> -->
+			
+		</section>
+	</section>
+</div>

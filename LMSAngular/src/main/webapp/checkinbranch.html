@@ -1,0 +1,76 @@
+<div data-ng-controller="borrowerController">
+	<section id="main-content">
+		<section class="wrapper">
+			<!--overview start-->
+			<div class="row">
+				<h3>List of Branches</h3>
+			</div>
+
+			<div class="input-group col-md-12">
+				<div class="row">
+					<form>
+						<div class="col-md-6">
+							<input class="form-control" placeholder="Search by name"
+								data-ng-model="query">
+						</div>
+						<div class="col-md-6">
+							<select class="form-control" data-ng-model="orderProp">
+								<option value="" selected disabled>Sort by</option>
+								<option value="branchName">Alphabet</option>
+								<option value="-branchId">Newest</option>
+								<option value="branchId">Oldest</option>
+							</select>
+						</div>
+					</form>
+					<div class="col-md-6">
+						<dir-pagination-controls 
+							max-size="5" 
+							direction-links="true"
+							boundary-links="true"> 
+						</dir-pagination-controls>
+					</div>
+				</div>
+			</div>
+
+			<br><br>
+
+			<div class="col-md-12">
+				<section class="panel">
+					<div class="table-responsive">
+						<table class="table table-striped" id="branchTable">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Borrower name</th>
+									<th>Branch name</th>
+									<th>Book title</th>
+									<th>Checked out</th>
+									<th>Due date</th>
+									<th>Return a book</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr
+									dir-paginate="b in bookLoanInfo | filter:query | orderBy:orderProp | itemsPerPage : 10">
+									<td>{{$index + 1}}</td>
+									<td>{{b.borrower.borrowerName}}</td>
+									<td>{{b.branch.branchName}}</td>
+									<td>{{b.book.title}}</td>
+									<td>{{b.dateOut}}</td>
+									<td>{{b.dueDate}}</td>
+									<td><button name="Edit" class="btn btn-sm btn-danger"
+										ng-click="returnBook(b.bookId)">Return</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+			</div>
+			<br>
+		
+
+<!-- 			<pre>{{branches || json}}</pre> -->
+
+		</section>
+	</section>
+</div>

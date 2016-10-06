@@ -1,0 +1,20 @@
+<div data-ng-controller="branchController">
+	<section id="main-content">
+		<section class="wrapper">
+			<div class="col-lg-6">
+				<section class="panel">
+					<header class="panel-heading"> Add Branch </header>
+						<div class="panel-body">
+								<div class="form-group">
+									<input type="text" data-ng-model="branchName" class="form-control" 
+									placeholder="Branch Name">
+									<input type="text" data-ng-model="branchAddress" class="form-control" 
+									placeholder="Branch Address">
+								</div>
+								<button id="btnAdd" data-ng-click="newBranch()" class="btn btn-md btn-success">Add</button>	
+						</div>
+				</section>
+			</div>
+		</section>
+	</section>
+</div>

@@ -1,0 +1,18 @@
+<div data-ng-controller="authorController">
+	<section id="main-content">
+		<section class="wrapper">
+			<div class="col-lg-6">
+				<section class="panel">
+					<header class="panel-heading"> Add Author </header>
+					<div class="panel-body">
+							<div class="form-group">
+								<input type="text" data-ng-model="authorName" class="form-control" 
+								placeholder="Author Name" data-ng-keydown="$event.which === 13 && newAuthor()" >
+							</div>
+							<button id="btnAdd" data-ng-click="newAuthor()" class="btn btn-md btn-success">Add</button>	
+					</div>
+				</section>
+			</div>
+		</section>
+	</section>
+</div>

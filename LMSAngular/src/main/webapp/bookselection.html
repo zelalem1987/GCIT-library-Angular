@@ -1,0 +1,68 @@
+<div data-ng-controller="borrowerController">
+	<section id="main-content">
+		<section class="wrapper">
+
+			<div class="col-md-6">
+				<button class="btn btn-sm btn-warning" ng-click="brSelection()">Back
+					to branches</button>
+			</div>
+			
+			<div class="input-group col-md-12">
+				<div class="row">
+					<form>
+						<div class="col-md-6">
+							<input class="form-control" placeholder="Search by name"
+								data-ng-model="query">
+						</div>
+						<div class="col-md-6">
+							<select class="form-control" data-ng-model="sortIt">
+								<option value="" selected disabled>Sort by: </option>
+								<option value="title">Alphabet</option>
+								<option value="-bookId">Newest</option>
+								<option value="bookId">Oldest</option>
+							</select>					
+						</div>
+					</form>
+					
+					<div class="col-md-6">
+						<dir-pagination-controls 
+							max-size="5" 
+							direction-links="true"
+							boundary-links="true"> 
+						</dir-pagination-controls>
+					</div>
+					<br>
+				</div>
+			</div>
+			
+			<div class="col-md-12">
+				<section class="panel">
+					<div class="table-responsive">
+						<table class="table table-striped" id="bookTable">	
+							<thead>				
+								<tr>
+									<th>#</th>
+									<th>Book title</th>
+									<th>No of copies</th>
+									<th>Borrow this book</th>
+								</tr>	
+							</thead>
+							<tbody>
+								<tr dir-paginate="br in branchBooks | filter:search | itemsPerPage:5 ">
+									<td>{{$index + 1}}</td>
+									<td>{{br.title}}</td>
+									<td>{{br.noOfCopies}}</td>
+									<td><button name="Edit" class="btn btn-sm btn-success"
+										ng-click="checkOut(br.bookId)">Check out</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+			</div>
+			
+<!-- 			<pre>{{authors || json}}</pre> -->
+			
+		</section>
+	</section>
+</div>

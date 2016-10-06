@@ -1,0 +1,72 @@
+<div data-ng-controller="borrowerController">
+	<section id="main-content">
+		<section class="wrapper">
+		
+			<div class="col-md-6">
+				<button class="btn btn-sm btn-warning" ng-click="backToBorrowers()">Back
+					to branches</button>
+			</div>
+
+			<div class="input-group col-md-12">
+				<div class="row">
+					<form>
+						<div class="col-md-6">
+							<input class="form-control" placeholder="Search by name"
+								data-ng-model="query">
+						</div>
+						<div class="col-md-6">
+							<select class="form-control" data-ng-model="orderProp">
+								<option value="" selected disabled>Sort by</option>
+								<option value="branchName">Alphabet</option>
+								<option value="-branchId">Newest</option>
+								<option value="branchId">Oldest</option>
+							</select>
+						</div>
+					</form>
+					<div class="col-md-6">
+						<dir-pagination-controls 
+							max-size="5" 
+							direction-links="true"
+							boundary-links="true"> 
+						</dir-pagination-controls>
+					</div>
+				</div>
+			</div>
+
+			<nav aria-label="Page navigation" id="showAuthor"></nav>
+
+			<div class="col-md-12">
+				<section class="panel">
+					<div class="table-responsive">
+						<table class="table table-striped" id="branchTable">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Branch name</th>
+									<th>Branch Address</th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<tr
+									dir-paginate="b in branchs | filter:query | orderBy:orderProp | itemsPerPage : 10">
+									<td>{{$index + 1}}</td>
+									<td>{{b.branchName}}</td>
+									<td>{{b.branchAddress}}</td>
+									
+									<td><button name="Edit" class="btn btn-sm btn-success"
+										ng-click="boSelection(b.branchId)">select</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+			</div>
+			<br>
+		
+
+<!-- 			<pre>{{branches || json}}</pre> -->
+
+		</section>
+	</section>
+</div>

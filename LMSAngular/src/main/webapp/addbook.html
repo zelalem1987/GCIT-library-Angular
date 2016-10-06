@@ -1,0 +1,37 @@
+<div data-ng-controller="bookController">
+	<section id="main-content">
+		<section class="wrapper">
+			<div class="col-lg-6">
+				<section class="panel">
+					<header class="panel-heading"> Add Book </header>
+					<div class="panel-body">
+						<div class="form-group">
+							<input type="text" data-ng-model="addTitle" class="form-control"
+								placeholder="Book Title">
+						</div>
+						<div class="form-group">
+							<label>Select Publishers:</label> <select
+								class="form-control" data-ng-model="addPublisher"
+								data-ng-options="p.publisherName for p in publisherBook">
+									 <option value="" selected disabled>Publishers</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Select Authors:</label> <select
+								class="form-control"  data-ng-model="addAuthor"
+								data-ng-options="a.authorName for a in authorBook" multiple>					
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="sel1">Select Genres:</label> <select
+								class="form-control" multiple data-ng-model="addGenre"
+								data-ng-options="g.genreName for g in genresBook">
+							</select>
+						</div>
+						<button id="btnAdd" data-ng-click="newBook()" class="btn btn-md btn-success">Add</button>	
+					</div>
+				</section>
+			</div>
+		</section>
+	</section>
+</div>
